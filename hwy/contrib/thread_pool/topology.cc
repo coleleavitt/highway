@@ -165,7 +165,7 @@ void ForeachBit(size_t num_groups, const GROUP_AFFINITY* affinity,
       size_t lp = group * 64 + Num0BitsBelowLS1Bit_Nonzero64(bits);
       bits &= bits - 1;  // clear LSB
       if (HWY_UNLIKELY(lp >= lps.size())) {
-        Warn(__FILE__, line, "Clamping lp %zu to lps.size() %zu, groups %zu\n",
+        HWY_WARN("Clamping lp %zu to lps.size() %zu, groups %zu\n",
              lp, lps.size(), num_groups);
         lp = lps.size() - 1;
       }
